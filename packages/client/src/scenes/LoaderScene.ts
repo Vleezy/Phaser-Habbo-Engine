@@ -65,7 +65,7 @@ export class LoaderScene extends Phaser.Scene {
     this.loadingText.setText(`Loading... ${percent}%`);
   }
 
-  private onFileProgress(file: Phaser.Loader.File): void {
+  private onFileProgress(_file: Phaser.Loader.File): void {
   }
 
   private onLoadComplete(): void {

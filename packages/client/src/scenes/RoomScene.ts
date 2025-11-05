@@ -12,7 +12,8 @@ import {
   CameraManager,
   MeshCache,
   RoomObjectCategory,
-  type TilePosition
+  type TilePosition,
+  type TileMesh
 } from '@polaris/renderer';
 import { useGameStore } from '@core/store';
 
@@ -203,7 +204,7 @@ export class RoomScene extends Phaser.Scene {
           child instanceof Phaser.GameObjects.Container ||
           child instanceof Phaser.GameObjects.Image ||
           child instanceof Phaser.GameObjects.Sprite) {
-        if (child !== this.avatar && child !== this.hoverGraphics) {
+        if (child !== this.avatar.container && child !== this.hoverGraphics) {
           childrenToDestroy.push(child);
         }
       }

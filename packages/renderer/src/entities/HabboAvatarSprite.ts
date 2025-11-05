@@ -4,7 +4,7 @@ import { IsometricEngine } from '../engine/IsometricEngine';
 
 export class HabboAvatarSprite {
   private scene: Phaser.Scene;
-  private container: Phaser.GameObjects.Container;
+  public container: Phaser.GameObjects.Container;
   private bodySprite!: Phaser.GameObjects.Sprite;
   private headSprite!: Phaser.GameObjects.Sprite;
   private leftHandSprite!: Phaser.GameObjects.Sprite;

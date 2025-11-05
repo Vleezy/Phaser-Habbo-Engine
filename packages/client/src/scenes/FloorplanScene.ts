@@ -12,7 +12,6 @@ export class FloorplanScene extends Phaser.Scene {
   private roomData: RoomData;
   private gridGraphics!: Phaser.GameObjects.Graphics;
   private config: FloorplanConfig;
-  private doorTile: { x: number; y: number } | null = null;
   private offsetX: number = 450;
   private offsetY: number = 150;
   private isHolding: boolean = false;
@@ -139,7 +138,7 @@ export class FloorplanScene extends Phaser.Scene {
 
         if (tile.walkable) {
           const heightColor = this.getHeightColor(tile.height);
-          this.drawIsometricTile(screenX, screenY, heightColor, tile.height);
+          this.drawIsometricTile(screenX, screenY, heightColor);
 
           if (tile.height > 0) {
             const text = this.add.text(
@@ -172,7 +171,7 @@ export class FloorplanScene extends Phaser.Scene {
     }
   }
 
-  private drawIsometricTile(x: number, y: number, color: number, height: number): void {
+  private drawIsometricTile(x: number, y: number, color: number): void {
     this.gridGraphics.fillStyle(color, 1);
     this.gridGraphics.lineStyle(1, 0x3f4147, 1);
 
@@ -275,7 +274,6 @@ export class FloorplanScene extends Phaser.Scene {
       case FloorAction.DOOR:
         if (tile.walkable) {
           this.roomData.doorTile = { x: gridX, y: gridY };
-          this.doorTile = { x: gridX, y: gridY };
         }
         break;
     }
